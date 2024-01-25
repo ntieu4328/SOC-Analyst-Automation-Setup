@@ -22,3 +22,22 @@ https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon
 10. apt-get update && apt-get upgrade
 11. install using this link
     https://documentation.wazuh.com/current/quickstart.html
+
+make aws TheHive Server
+has to be at least 4 CPU 16 gib ram
+I used t2.xlarge
+install using this link:
+https://docs.strangebee.com/thehive/setup/#operating-systems
+
+Login to wazuh using the information that was given
+
+Create Wazuh agent with these settings:
+windows: MSI 32/64 bits
+server address: public IPv4 of the wazuh ec2 instance
+Agent name: Whatever you want
+Install the agent using the command given:
+
+Start the agent:
+NET START WazuhSvc
+
+Show that agent shows active
