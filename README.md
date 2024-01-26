@@ -64,6 +64,24 @@ Security Group Settings:
 <h2>Wazuh Setup</h2>
 
 1. SSH into the AWS EC2 Server that will be running Wazuh
+   
+2. Go into root user:
+
+```bash
+sudo su
+```
+   
+3. Update and upgrade the server:
+
+```bash
+apt-get update && sudo apt-get upgrade
+```
+
+4. Install Wazuh:
+
+```bash
+sudo apt-get update
+```
 1. make windows vm
 
 2. on the vm dowload sysmon
