@@ -17,10 +17,11 @@ https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon
      ubuntu 22.04
    at least 8 gib ram
    50 gib storage
-
-9. ssh into aws wazuh server
-10. apt-get update && apt-get upgrade
-11. install using this link
+   security groups fully open for both thehive and wazuh
+   
+10. ssh into aws wazuh server
+11. apt-get update && apt-get upgrade
+12. install using this link
     https://documentation.wazuh.com/current/quickstart.html
 
 make aws TheHive Server
@@ -41,3 +42,12 @@ Start the agent:
 NET START WazuhSvc
 
 Show that agent shows active
+
+integrate wazuh into thehive:
+https://wazuh.com/blog/using-wazuh-and-thehive-for-threat-protection-and-incident-response/
+
+wazuh:
+https://IP:443
+
+thehive:
+http://IP:9000
