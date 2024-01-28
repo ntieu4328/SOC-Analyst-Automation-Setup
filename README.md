@@ -79,57 +79,65 @@ apt-get update && sudo apt-get upgrade
 
 4. Install Wazuh:
 
+[Wazuh Install Documentation](https://documentation.wazuh.com/current/quickstart.html)
+
 ```bash
-sudo apt-get update
+curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh && sudo bash ./wazuh-install.sh -a
 ```
-1. make windows vm
 
-2. on the vm dowload sysmon
-https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon
+5. Using the login information given after installation, login to Wazuh in a web browser:
 
-3. open powershell
+*For the <wazuh-dashboard-ip> input the public IPv4 of the AWS EC2 server that Wazuh is run on.
 
-4. go into the folder with the sysmon
+![wazuh login info](https://github.com/ntieu4328/SOC-Analyst-Automation-Setup/assets/156137990/9501362e-a065-4374-ac7f-3e24cf09c0fb)
 
-5. C:\Users\ntieu\DownloadsSysmon\
-6. .\sysmon64.exe -i
-7. verify that sysmon is installed
-8. create aws ec2 instance
-   settings:
-     ubuntu 22.04
-   at least 8 gib ram
-   50 gib storage
-   security groups fully open for both thehive and wazuh
+![wazuh login page](https://github.com/ntieu4328/SOC-Analyst-Automation-Setup/assets/156137990/6d4eb03d-c6b9-4926-a9f6-839437dce9b8)
+
+![wazuh starting menu](https://github.com/ntieu4328/SOC-Analyst-Automation-Setup/assets/156137990/1af17b3d-66e2-434b-9aa9-2b4026719bff)
+<br>
+<br>
+
+
+<h2>TheHive Setup</h2>
+
+1. SSH into the AWS EC2 Server that will be running TheHive
    
-10. ssh into aws wazuh server
-11. apt-get update && apt-get upgrade
-12. install using this link
-    https://documentation.wazuh.com/current/quickstart.html
+2. Go into root User:
 
-make aws TheHive Server
-has to be at least 4 CPU 16 gib ram
-I used t2.xlarge
-install using this link:
-https://docs.strangebee.com/thehive/setup/#operating-systems
+```bash
+sudo su
+```
 
-Login to wazuh using the information that was given
+3. Update and upgrade the server:
 
-Create Wazuh agent with these settings:
-windows: MSI 32/64 bits
-server address: public IPv4 of the wazuh ec2 instance
-Agent name: Whatever you want
-Install the agent using the command given:
+```bash
+apt-get update && sudo apt-get upgrade
+```
 
-Start the agent:
-NET START WazuhSvc
+4. Install TheHive:
 
-Show that agent shows active
+[TheHive Install Documentation](https://docs.strangebee.com/thehive/setup/#operating-systems)
 
-integrate wazuh into thehive:
-https://wazuh.com/blog/using-wazuh-and-thehive-for-threat-protection-and-incident-response/
+```bash
+wget -q -O /tmp/install.sh https://archives.strangebee.com/scripts/install.sh ; sudo -v ; bash /tmp/install.sh
+```
 
-wazuh:
-https://IP:443
+5. Using the login information given after installation, login to TheHive in a web browser:
 
-thehive:
-http://IP:9000
+*For the IP to input, switch 172.31.24.221 with the public IPv4 of the AWS EC2 server that TheHive is run on.
+
+![TheHive login info](https://github.com/ntieu4328/SOC-Analyst-Automation-Setup/assets/156137990/1dcc39fa-ca21-49f8-89f3-1a402bad2133)
+
+![TheHive login page](https://github.com/ntieu4328/SOC-Analyst-Automation-Setup/assets/156137990/58886ee2-48c4-4037-b3f2-5d6627702a1c)
+
+![TheHive starting menu](https://github.com/ntieu4328/SOC-Analyst-Automation-Setup/assets/156137990/7fa74a94-e12e-48c1-8177-a87e337c652c)
+<br>
+<br>
+
+
+<h2>Integrate TheHive with Wazuh:</h2>
+
+Follow the instructions:
+
+[Integration Documentation](https://wazuh.com/blog/using-wazuh-and-thehive-for-threat-protection-and-incident-response/)
+
