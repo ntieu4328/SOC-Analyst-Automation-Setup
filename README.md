@@ -140,4 +140,44 @@ wget -q -O /tmp/install.sh https://archives.strangebee.com/scripts/install.sh ; 
 Follow the instructions:
 
 [Integration Documentation](https://wazuh.com/blog/using-wazuh-and-thehive-for-threat-protection-and-incident-response/)
+<br>
+<br>
 
+
+<h2>Create Wazuh agent:</h2>
+
+The Wazuh agent will be our Windows 10 Virtual Machine. This agent will be the system that we are going to monitor for cybersecurity incidents.
+
+1. Start agent creation setup:
+   
+![create agent](https://github.com/ntieu4328/SOC-Analyst-Automation-Setup/assets/156137990/8e6630e1-fc68-4e01-b1e9-2153f62562fb)
+
+2. Since I will be doing the agent on a Windows 10 Machine select Windows.
+   
+![system select](https://github.com/ntieu4328/SOC-Analyst-Automation-Setup/assets/156137990/fcdcb89c-fc05-4260-b972-cdaafa3726c6)
+
+3. The agent name can be whatever you want.
+
+![agent name](https://github.com/ntieu4328/SOC-Analyst-Automation-Setup/assets/156137990/e3700264-23f8-4ac8-a545-e83a7b77a58d)
+
+4. The server IP should be the public IPv4 of the AWS EC2 server that's running Wazuh.
+
+![server select](https://github.com/ntieu4328/SOC-Analyst-Automation-Setup/assets/156137990/c610d8bf-dab0-494c-bafd-ac208a6bbf1a)
+
+5. Copy and paste the code that's generated into a Windows Powershell with Admin privileges:
+
+*Should look something like this:
+
+![wazuh install agent code](https://github.com/ntieu4328/SOC-Analyst-Automation-Setup/assets/156137990/e5b2517e-42a9-4d81-ae5e-2862416615b3)
+
+6. Start the Wazuh agent:
+
+```bash
+NET START WazuhSvc
+```
+
+7. This is what it will look like when the agent has been successfully deployed:
+
+![Wazuh successfully added agent](https://github.com/ntieu4328/SOC-Analyst-Automation-Setup/assets/156137990/6ee6ca45-4dc0-4621-bc8c-66761a031617)
+
+<b>You have just finished setting everything up for the SOC Analyst Automation Project!!!</b>
