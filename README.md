@@ -152,15 +152,15 @@ The Wazuh agent will be our Windows 10 Virtual Machine. This agent will be the s
    
 ![create agent](https://github.com/ntieu4328/SOC-Analyst-Automation-Setup/assets/156137990/8e6630e1-fc68-4e01-b1e9-2153f62562fb)
 
-2. Since I will be doing the agent on a Windows 10 Machine select Windows.
+2. Since I will be doing the agent on a Windows 10 Machine select Windows:
    
 ![system select](https://github.com/ntieu4328/SOC-Analyst-Automation-Setup/assets/156137990/fcdcb89c-fc05-4260-b972-cdaafa3726c6)
 
-3. The agent name can be whatever you want.
+3. The agent name can be whatever you want:
 
 ![agent name](https://github.com/ntieu4328/SOC-Analyst-Automation-Setup/assets/156137990/e3700264-23f8-4ac8-a545-e83a7b77a58d)
 
-4. The server IP should be the public IPv4 of the AWS EC2 server that's running Wazuh.
+4. The server IP should be the public IPv4 of the AWS EC2 server that's running Wazuh:
 
 ![server select](https://github.com/ntieu4328/SOC-Analyst-Automation-Setup/assets/156137990/c610d8bf-dab0-494c-bafd-ac208a6bbf1a)
 
